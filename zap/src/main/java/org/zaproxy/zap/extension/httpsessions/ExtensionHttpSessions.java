@@ -638,7 +638,8 @@ public class ExtensionHttpSessions extends ExtensionAdaptor
     @Override
     public void onHttpResponseReceive(HttpMessage msg, int initiator, HttpSender sender) {
         if (initiator != HttpSender.PROXY_INITIATOR
-                && initiator != HttpSender.MANUAL_REQUEST_INITIATOR) {
+                && initiator != HttpSender.MANUAL_REQUEST_INITIATOR
+                && initiator != HttpSender.ACTIVE_SCANNER_INITIATOR) {
             // Not a session we care about
             return;
         }
